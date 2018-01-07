@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .toast-container{
+      display: flex;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
+    }
+    .toast{
+      width: 180px;
+      height: 60px;
+      line-height: 60px;
+      text-align: center;
+      background-color: rgba(0, 0, 0, .6);;
+      border-radius: 10px;
+      color: #fff
+    }
+  </style>
+</head>
+<body>
+  <!-- <section class="toast-container">
+    <div class="toast">
+      <span>Hello, Toast</span>
+    </div>
+  </section> -->
+  <div id="app">
+    <a href="javascript:;" @click="toast">点击弹出Toast</a>
+  </div>
+</body>
+<script type="text/javascript" src="./../node_modules/vue/dist/vue.js"></script>
+<script type="text/javascript" src="./../dist/vue-toast.js"></script>
+<script type="text/javascript">
+  new Vue({
+    el: '#app',
+    methods: {
+      toast() {
+        this.$toast.info({
+          message: 'Hello Toast',
+          type: 'error',
+          callback() {
+            alert('执行回掉函数')
+          }
+        })
+      }
+    }
+  })
+</script>
+</html>
